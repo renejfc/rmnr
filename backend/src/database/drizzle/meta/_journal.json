@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1722299035969,
+      "tag": "0000_even_the_initiative",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1722299832747,
+      "tag": "0001_third_nuke",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1722300398317,
+      "tag": "0002_ordinary_betty_ross",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1722517189401,
+      "tag": "0003_white_blink",
+      "breakpoints": true
+    }
+  ]
+}

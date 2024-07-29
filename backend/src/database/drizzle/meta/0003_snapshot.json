@@ -1,0 +1,199 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "89b4321c-f3aa-40ca-be14-9113e0e3da38",
+  "prevId": "6aefdccc-46b7-4b2e-afa1-2a443373a216",
+  "tables": {
+    "integrations": {
+      "name": "integrations",
+      "columns": {
+        "integration_id": {
+          "name": "integration_id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "integrations_user_id_users_user_id_fk": {
+          "name": "integrations_user_id_users_user_id_fk",
+          "tableFrom": "integrations",
+          "tableTo": "users",
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["user_id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "teams_memberships": {
+      "name": "teams_memberships",
+      "columns": {
+        "membership_id": {
+          "name": "membership_id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "team_id": {
+          "name": "team_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "teams_memberships_user_id_team_id_unique": {
+          "name": "teams_memberships_user_id_team_id_unique",
+          "columns": ["user_id", "team_id"],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "teams_memberships_user_id_users_user_id_fk": {
+          "name": "teams_memberships_user_id_users_user_id_fk",
+          "tableFrom": "teams_memberships",
+          "tableTo": "users",
+          "columnsFrom": ["user_id"],
+          "columnsTo": ["user_id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "teams_memberships_team_id_teams_team_id_fk": {
+          "name": "teams_memberships_team_id_teams_team_id_fk",
+          "tableFrom": "teams_memberships",
+          "tableTo": "teams",
+          "columnsFrom": ["team_id"],
+          "columnsTo": ["team_id"],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "teams": {
+      "name": "teams",
+      "columns": {
+        "team_id": {
+          "name": "team_id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "users": {
+      "name": "users",
+      "columns": {
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "first_name": {
+          "name": "first_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "last_name": {
+          "name": "last_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "columns": ["email"],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

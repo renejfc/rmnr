@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `teams_memberships_user_id_team_id_unique` ON `teams_memberships` (`user_id`,`team_id`);
